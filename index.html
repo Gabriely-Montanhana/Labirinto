@@ -1,34 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labirinto</title>
+    <title>CodeRun</title>
     <link rel="stylesheet" href="css/inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>LABIRINTO</h1>
-        <nav>
-            <a href="index.html">Home</a></li>
-            <a href="sobre.html">Sobre</a>
-            <a href="contato.html">Contato</a>
-            <a class="jogar" href="jogar.html">Jogar</a>
-        </nav>
+        <div class="logo">&lt;CodeRun/&gt;</div>
+        <ul>
+            <li><a href="index.html" class="active">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="jogo.html" class="btn-play">Jogar Agora</a></li>
+        </ul>
     </header>
-     <p class="p">d</p>
 
-     <main>
+    <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>LABIRINTO</h1>
-                <p>Resgate as moedas para passar de fase</p>
-                <div class="hero-buttons">
-                    <a href="jogo.html" class="btn btn-primary">JOGAR AGORA</a>
-                    <a href="sobre.html" class="btn btn-secondary">SAIBA MAIS</a>
+            <div class="content">
+            <h1 class="glitch" data-text="LABIRINTO DO CÓDIGO PERDIDO">CODERUN</h1>
+            <p class="subtitle">Entre no sistema corrompido e restaure o código-fonte antes que seja tarde demais!</p>
+                <div class="buttons">
+                    <a href="jogo.html" class="btn-primary">▶ INICIAR JOGO</a>
+                    <a href="sobre.html" class="btn-secondary">SAIBA MAIS</a>
                 </div>
             </div>
         </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">CARACTERÍSTICAS DO JOGO</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">🎮</div>
+                    <h3>Jogabilidade Intensa</h3>
+                    <p>Labirintos gerados proceduralmente com desafios únicos a cada partida</p>
+                </div>
+                <div class="card">
+                    <div class="icon">👾</div>
+                    <h3>Vírus Digitais</h3>
+                    <p>Desvie de inimigos cada vez mais rápidos e inteligentes</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⏱️</div>
+                    <h3>Contra o Tempo</h3>
+                    <p>Restaure o sistema antes que o tempo acabe e a corrupção seja total</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>PRONTO PARA O DESAFIO?</h2>
+            <p>Entre no labirinto e prove suas habilidades!!</p>
+            <a href="jogo.html" class="btn-primary btn-large">JOGAR AGORA</a>
+        </div>
+    </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CodeRun. Desenvolvido por Gabriely Montanhana</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">Discord</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
