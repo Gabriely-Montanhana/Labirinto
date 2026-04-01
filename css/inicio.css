@@ -87,7 +87,7 @@ header {
 
     .btn-play {
         background: var(--primary-color);
-        color: var(--bg-dark) !important;
+        color: var(--bg-dark);
         padding: 0.5rem 1.5rem;
         border-radius: 5px;
         font-weight: 700;
@@ -98,8 +98,6 @@ header {
         transform: translateY(-2px);
     }
 }
-
-
 
 .hero {
     min-height: 80vh;
