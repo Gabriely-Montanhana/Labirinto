@@ -255,7 +255,16 @@ footer {
 }
 
 .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        .grid {
+        grid-template-columns: 1fr;
     }
+    }
+    
+}
