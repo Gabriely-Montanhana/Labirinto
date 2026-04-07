@@ -16,6 +16,8 @@
             <li><a href="contato.html">Contato</a></li>
             <li><a href="jogo.html" class="btn-play">Jogar Agora</a></li>
         </ul>
+        <!-- Botão de alternância de tema -->
+        <button id="theme-toggle" aria-label="Alternar tema">☀️</button>
     </header>
 
     <main>
@@ -76,5 +78,17 @@
             </div>
         </div>
     </footer>
+
+     <script src="js/script.js"></script>
+
+     <script>
+         // --- ITEM 7: VERIFICAÇÃO DE LANÇAMENTO ---
+        const ANO_LANCAMENTO = 2026;
+        let anoAtual = new Date().getFullYear();
+
+        if (anoAtual == ANO_LANCAMENTO) {
+            alert("📢 NOTÍCIA: Este jogo é um GRANDE LANÇAMENTO deste ano!");
+        }
+    </script>
 </body>
 </html>

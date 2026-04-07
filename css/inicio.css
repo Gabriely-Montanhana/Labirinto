@@ -35,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background: rgba(10, 10, 15, 0.95);
+    background: var(--bg-dark);
     position: fixed;
     width: 100%;
     top: 0;
@@ -329,4 +329,36 @@ footer {
     }
 }
 
+body.light-theme {
+  --bg-dark: #f4f7f6;
+  --bg-darker: #e8ecef;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555566;
+  --primary-color: #00a86b; 
+}
 
+body, header, .hero, .cta, .features, .card, footer, button, a {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  border: 2px solid var(--primary-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: var(--primary-color);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px rgba(0, 168, 107, 0.4);
+}

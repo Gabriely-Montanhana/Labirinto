@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeRun</title>
-    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/jogar.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,10 +16,33 @@
             <li><a href="contato.html">Contato</a></li>
             <li><a href="jogo.html" class="btn-play">Jogar Agora</a></li>
         </ul>
+        <!-- Botão de alternância de tema -->
+        <button id="theme-toggle" aria-label="Alternar tema">☀️</button>
     </header>
 
-    <main>
+     <main>
+        <section class="game-section">
+          <div class="container">
+            <h1>JOGUE AGORA</h1>
+            <p class="game-subtitle">Colete todos os fragmentos e chegue ao terminal!</p>
+                <div class="game-controls-info">
+                    <h3>CONTROLES</h3>
+                    <div class="controls-list">
+                        <div class="control-item"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> - Mover</div>
+                    </div>
+               </div>
+               <div class="game-container">
+                <canvas class="canvas" width="800" height="600"></canvas>
 
+                    <div class="game-overlay">
+                         <div class="overlay-content">
+                            <h2>LABIRINTO DO CÓDIGO</h2>
+                            <button class="btn-primary">INICIAR JOGO</button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -32,5 +55,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
