@@ -296,7 +296,7 @@ body, header, .hero, .cta, .features, .card, footer, button, a {
 
 #theme-toggle {
     position: fixed;
-    top: 18px;
+    top: auto;
     right: 20px;
 
   
@@ -315,4 +315,79 @@ body, header, .hero, .cta, .features, .card, footer, button, a {
   background: var(--primary-color);
   color: var(--bg-dark);
   box-shadow: 0 0 15px rgba(0, 168, 107, 0.4);
+}
+
+@media (max-width: 769px) {
+    #theme-toggle {
+        right: 70px;
+    }
+
+  /* Header se adapta */
+  header {
+    flex-wrap: wrap;
+    padding: 0.8rem 4%;
+  }
+
+  /* Botão hambúrguer aparece */
+  .menu-toggle {
+    display: block;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto; /* Empurra para a direita antes do nav */
+  }
+
+  /* Menu escondido por padrão no mobile */
+  .nav-menu ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--bg-darker);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 5% 0;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
+
+  .nav-menu ul.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .nav-menu ul li {
+    text-align: center;
+  }
+
+  .nav-menu ul a {
+    display: block;
+  }
+
+  /* Botões empilham verticalmente */
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 85%;
+    text-align: center;
+  }
+}
+
+/* Esconde o hambúrguer no desktop */
+@media (min-width: 769px) {
+  .menu-toggle { display: none; }
+  .nav-menu ul { display: flex; position: static; box-shadow: none; padding: 0; background: transparent; }
+}
+
+/* Animação suave para abertura do menu */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
