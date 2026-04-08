@@ -100,14 +100,12 @@ header {
 }
 
 .hero {
-    min-height: 80vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     padding-top: 80px;
-    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
-    overflow: hidden;
+    background: var(--bg-dark);
 
     .hero::before {
         content: '';
@@ -209,7 +207,7 @@ header {
     .section-title {
         text-align: center;
         font-size: 2.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         color: var(--primary-color);
         text-shadow: 0 0 10px var(--primary-color);
     }
@@ -311,22 +309,6 @@ footer {
         color: var(--text-secondary);
     }
 
-    .social-links {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-
-        a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-       }
-    }
 }
 
 body.light-theme {
@@ -364,8 +346,19 @@ body, header, .hero, .cta, .features, .card, footer, button, a {
 }
 
 @media (max-width: 769px) {
+    .features {
+        .section-title {
+           font-size: 2rem;
+        }
+    }
+    
     #theme-toggle {
         right: 70px;
+    }
+
+    .top-btn {
+        justify-content: center;
+        margin-top: 10px;
     }
 
   /* Header se adapta */
@@ -428,12 +421,105 @@ body, header, .hero, .cta, .features, .card, footer, button, a {
 
 /* Esconde o hambúrguer no desktop */
 @media (min-width: 769px) {
-  .menu-toggle { display: none; }
-  .nav-menu ul { display: flex; position: static; box-shadow: none; padding: 0; background: transparent; }
+  .menu-toggle { 
+    display: none; 
+  }
+
+  .nav-menu ul { 
+    display: flex; 
+    position: static; 
+    box-shadow: none; padding: 0; 
+    background: transparent; 
+   }
+
+   .top-btn {
+    justify-content: center;
+    margin-top: 10px;
+   }
 }
 
 /* Animação suave para abertura do menu */
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botões do header */
+.top-btn {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    
+    
+}
+
+.top-btn:hover { 
+    background: var(--primary-color); 
+    color: var(--bg-dark); 
+}
+
+/* Área sensível com blur inicial */
+.sensitive-area {
+  padding: 2rem;
+  background: var(--bg-card);
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 10px;
+  text-align: center;
+  h2 {
+    color: var(--primary-color);
+  }
+  
+}
+
+.blur-filter { 
+    filter: blur(8px); 
+    pointer-events: none; 
+    user-select: none; 
+}
+
+.unblur-filter { 
+    filter: blur(0); 
+    pointer-events: auto; 
+    user-select: auto; 
+    transition: filter 0.5s ease; 
+}
+
+/* Seção de saudação */
+.greeting-section { 
+    text-align: center; 
+    margin: 2rem 0; 
+}
+
+.greeting-section input {
+  padding: 0.8rem;
+   border: 2px solid var(--primary-color);
+   background: var(--bg-card);
+   color: var(--text-primary);
+   border-radius: 5px; 
+   font-size: 1rem; 
+   width: 250px;
+}
+
+.greeting-section button {
+  padding: 0.8rem 1.5rem; 
+  background: var(--primary-color); 
+  color: var(--bg-dark);
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-weight: bold; 
+  margin-left: 0.5rem;
+}
+
+#greeting-output { 
+    margin-top: 1rem; 
+    font-size: 1.2rem; 
+    color: var(--secondary-color); 
 }

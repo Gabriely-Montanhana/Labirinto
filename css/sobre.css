@@ -109,22 +109,6 @@ footer {
         color: var(--text-secondary);
     }
 
-    .social-links {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-
-        a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-       }
-    }
 }
 
 .page-header {
@@ -254,6 +238,11 @@ footer {
     51%, 100% { opacity: 0; }
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
 .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -296,6 +285,34 @@ body, header, .hero, .cta, .features, .card, footer, button, a {
   color: var(--bg-dark);
   box-shadow: 0 0 15px rgba(0, 168, 107, 0.4);
 }
+
+.btn-primary{
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s;
+        display: inline-block;
+        font-family: 'Orbitron', sans-serif;
+        
+    }
+
+    .btn-primary {
+        background: var(--primary-color);
+        color: var(--bg-dark);
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+    }
+
+    .btn-large {
+        padding: 1.2rem 3rem;
+        font-size: 1.3rem;
+    }
 
 @media (max-width:780px) {
     main {

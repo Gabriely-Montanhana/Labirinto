@@ -22,8 +22,9 @@
        <!-- Botão de alternância de tema -->
         <button id="theme-toggle" aria-label="Alternar tema">☀️</button>
     </header>
-
+     
     <main>
+        
         <section class="hero">
             <div class="content">
             <h1 class="glitch" data-text="LABIRINTO DO CÓDIGO PERDIDO">CODERUN</h1>
@@ -58,6 +59,20 @@
         </div>
     </section>
 
+    <!-- Conteúdo sensível (para critério de blur) -->
+    <section id="conteudo-sensivel" class="sensitive-area blur-filter">
+        <h2>🔒 Área Restrita: Detalhes do Código-Fonte</h2>
+        <p id="game-details">Carregando informações do sistema...</p>
+    </section>
+
+    <!-- Formulário de saudação (critério de input) -->
+    <section class="greeting-section">
+        <h3>Identificação do Jogador</h3>
+        <input type="text" id="player-name-input" placeholder="Digite seu nome...">
+        <button id="greet-btn">Confirmar</button>
+        <p id="greeting-output"></p>
+    </section>
+
     <section class="cta">
         <div class="container">
             <h2>PRONTO PARA O DESAFIO?</h2>
@@ -70,14 +85,84 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 CodeRun. Desenvolvido por Gabriely Montanhana</p>
-            <div class="social-links">
-                <a href="#">GitHub</a>
-                <a href="#">Discord</a>
-                <a href="#">Twitter</a>
-            </div>
         </div>
+            <button id="age-check-btn" class="top-btn">🔞 Verificar Idade</button>
+            <button id="reset-launch-btn" class="top-btn" title="Resetar alerta de lançamento">🔄 Resetar Lançamento</button>
     </footer>
 
     <script src="js/script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 📊 CRITÉRIO 1: Manipulação de Dados Estáticos
+        const GAME_NAME = "CodeRun";
+        const GAME_VERSION = "v2.1.4";
+        const GAME_ENGINE = "Custom JS/Canvas";
+        const TARGET_AGE_RATING = "12+";
+        const DEV_STATUS = "Ativo";
+        document.getElementById("game-details").textContent = 
+            `📦 ${GAME_NAME} | 🛠 Engine: ${GAME_ENGINE} | 📌 Versão: ${GAME_VERSION} | 📊 Status: ${DEV_STATUS} | 🔞 Classificação: ${TARGET_AGE_RATING}`;
+
+        // 🔞 CRITÉRIOS 2, 3 e 4: Prompt, If/Else e Blur (Automático + Memória)
+        const sensitiveArea = document.getElementById("conteudo-sensivel");
+        const AGE_KEY = "coderun_age_check";
+
+        function aplicarEstadoIdade(age) {
+            if (age >= 18) {
+                sensitiveArea.classList.remove("blur-filter");
+                sensitiveArea.classList.add("unblur-filter");
+            } else {
+                sensitiveArea.classList.add("blur-filter");
+                sensitiveArea.classList.remove("unblur-filter");
+            }
+        }
+
+        function verificarIdade() {
+            const ageInput = prompt("⚠️ VERIFICAÇÃO DE SEGURANÇA\n\nDigite sua idade para acessar o conteúdo sensível:");
+            if (ageInput === null) { alert("🚫 Acesso bloqueado. Verificação obrigatória."); return; }
+            const age = parseInt(ageInput);
+            if (isNaN(age) || age < 0) { alert("⚠️ Idade inválida."); return verificarIdade(); }
+
+            localStorage.setItem(AGE_KEY, age);
+            aplicarEstadoIdade(age);
+            if (age >= 18) alert("✅ Acesso liberado!"); else alert("🚫 Acesso negado.");
+        }
+
+        const savedAge = localStorage.getItem(AGE_KEY);
+        if (savedAge !== null) { aplicarEstadoIdade(parseInt(savedAge)); } 
+        else { setTimeout(verificarIdade, 500); }
+
+        document.getElementById("age-check-btn")?.addEventListener("click", () => { 
+            localStorage.removeItem(AGE_KEY); verificarIdade(); 
+        });
+
+        // 💬 CRITÉRIO 5: Interatividade com Input de Texto
+        document.getElementById("greet-btn")?.addEventListener("click", () => {
+            const name = document.getElementById("player-name-input").value.trim();
+            const greetingOutput = document.getElementById("greeting-output");
+            greetingOutput.textContent = name ? `👋 Bem-vindo, ${name}! Prepare-se para rodar o ${GAME_NAME}.` : "⚠️ Digite um nome válido.";
+        });
+
+        // 📅 CRITÉRIO 7: Verificação de Lançamento (Apenas 1 vez por navegador)
+        const LAUNCH_YEAR = 2026;
+        const LAUNCH_KEY = "coderun_launch_seen";
+        
+        if (new Date().getFullYear() === LAUNCH_YEAR && !localStorage.getItem(LAUNCH_KEY)) {
+            setTimeout(() => {
+                alert("🚀 GRANDE LANÇAMENTO! CodeRun acaba de ser liberado oficialmente em " + LAUNCH_YEAR + "!");
+                localStorage.setItem(LAUNCH_KEY, "true"); // ⬅️ Marca como "já visto"
+            }, 2000);
+        }
+
+        // 🔄 Botão para limpar memória do alerta de lançamento
+        document.getElementById("reset-launch-btn")?.addEventListener("click", () => {
+            localStorage.removeItem("coderun_launch_seen");
+            alert("✅ Memória do lançamento limpa! O alerta aparecerá novamente no próximo carregamento.");
+            location.reload(); 
+        });
+
+    });
+</script>
 </body>
 </html>
