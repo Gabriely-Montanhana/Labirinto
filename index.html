@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeRun</title>
+    <title>Código Perdido</title>
     <link rel="stylesheet" href="css/inicio.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">&lt;CodeRun/&gt;</div>
+        <div class="logo">&lt;Código Perdido/&gt;</div>
         <button class="menu-toggle" aria-label="Abrir menu">☰</button>
         <nav class="nav-menu">
             <ul>
@@ -27,7 +27,7 @@
         
         <section class="hero">
             <div class="content">
-            <h1 class="glitch" data-text="LABIRINTO DO CÓDIGO PERDIDO">CODERUN</h1>
+            <h1 class="glitch" data-text="LABIRINTO DO CÓDIGO PERDIDO">Código Perdido</h1>
             <p class="subtitle">Entre no sistema corrompido e restaure o código-fonte antes que seja tarde demais!</p>
                 <div class="buttons">
                     <a href="jogo.html" class="btn-primary">▶ INICIAR JOGO</a>
@@ -84,7 +84,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 CodeRun. Desenvolvido por Gabriely Montanhana</p>
+            <p>&copy; 2026 Código Perdido. Desenvolvido por Gabriely Montanhana</p>
         </div>
             <button id="age-check-btn" class="top-btn">🔞 Verificar Idade</button>
             <button id="reset-launch-btn" class="top-btn" title="Resetar alerta de lançamento">🔄 Resetar Lançamento</button>
@@ -96,7 +96,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         
         // 📊 CRITÉRIO 1: Manipulação de Dados Estáticos
-        const GAME_NAME = "CodeRun";
+        const GAME_NAME = "Código Perdido";
         const GAME_VERSION = "v2.1.4";
         const GAME_ENGINE = "Custom JS/Canvas";
         const TARGET_AGE_RATING = "12+";
@@ -106,7 +106,7 @@
 
         // 🔞 CRITÉRIOS 2, 3 e 4: Prompt, If/Else e Blur (Automático + Memória)
         const sensitiveArea = document.getElementById("conteudo-sensivel");
-        const AGE_KEY = "coderun_age_check";
+        const AGE_KEY = "Código Perdido_age_check";
 
         function aplicarEstadoIdade(age) {
             if (age >= 18) {
@@ -146,18 +146,18 @@
 
         // 📅 CRITÉRIO 7: Verificação de Lançamento (Apenas 1 vez por navegador)
         const LAUNCH_YEAR = 2026;
-        const LAUNCH_KEY = "coderun_launch_seen";
+        const LAUNCH_KEY = "Código Perdido_launch_seen";
         
         if (new Date().getFullYear() === LAUNCH_YEAR && !localStorage.getItem(LAUNCH_KEY)) {
             setTimeout(() => {
-                alert("🚀 GRANDE LANÇAMENTO! CodeRun acaba de ser liberado oficialmente em " + LAUNCH_YEAR + "!");
+                alert("🚀 GRANDE LANÇAMENTO! Código Perdido acaba de ser liberado oficialmente em " + LAUNCH_YEAR + "!");
                 localStorage.setItem(LAUNCH_KEY, "true"); // ⬅️ Marca como "já visto"
             }, 2000);
         }
 
         // 🔄 Botão para limpar memória do alerta de lançamento
         document.getElementById("reset-launch-btn")?.addEventListener("click", () => {
-            localStorage.removeItem("coderun_launch_seen");
+            localStorage.removeItem("Código Perdido_launch_seen");
             alert("✅ Memória do lançamento limpa! O alerta aparecerá novamente no próximo carregamento.");
             location.reload(); 
         });
